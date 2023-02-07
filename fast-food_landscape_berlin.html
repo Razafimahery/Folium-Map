@@ -1,0 +1,1332 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_002d748c4ba1f89a44bd14d8a0697480 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+        
+</head>
+<body>
+    
+    
+    <div style="position: fixed; 
+    bottom: 50px; left: 50px; width: 150px; height: 200px; 
+    border:2px solid grey; z-index:9999; font-size:14px;
+    background-color:white;
+    ">&nbsp; <b>Brand Legend:</b> <br>
+&nbsp; KFC &nbsp; <i class="fa fa-map-marker fa-2x" style="color:red"></i> <br>&nbsp; McDonald's &nbsp; <i class="fa fa-map-marker fa-2x" style="color:blue"></i> <br>&nbsp; Subway &nbsp; <i class="fa fa-map-marker fa-2x" style="color:green"></i> <br>&nbsp; Burger King &nbsp; <i class="fa fa-map-marker fa-2x" style="color:purple"></i> <br>&nbsp; Pizza Hut &nbsp; <i class="fa fa-map-marker fa-2x" style="color:orange"></i> <br>&nbsp; Taco Bell &nbsp; <i class="fa fa-map-marker fa-2x" style="color:gray"></i> <br></div>
+    
+            <div class="folium-map" id="map_002d748c4ba1f89a44bd14d8a0697480" ></div>
+        
+    
+    <div style="position: fixed; 
+    bottom: 50px; left: 50px; width: 150px; height: 200px; 
+    border:2px solid grey; z-index:9999; font-size:14px;
+    background-color:white;
+    ">&nbsp; <b>Brand Legend:</b> <br>
+&nbsp; KFC &nbsp; <i class="fa fa-map-marker fa-2x" style="color:red"></i> <br>&nbsp; McDonald's &nbsp; <i class="fa fa-map-marker fa-2x" style="color:blue"></i> <br>&nbsp; Subway &nbsp; <i class="fa fa-map-marker fa-2x" style="color:green"></i> <br>&nbsp; Burger King &nbsp; <i class="fa fa-map-marker fa-2x" style="color:purple"></i> <br>&nbsp; Pizza Hut &nbsp; <i class="fa fa-map-marker fa-2x" style="color:orange"></i> <br>&nbsp; Taco Bell &nbsp; <i class="fa fa-map-marker fa-2x" style="color:gray"></i> <br></div>
+    
+    <div style="position: fixed; 
+    bottom: 50px; left: 50px; width: 150px; height: 200px; 
+    border:2px solid grey; z-index:9999; font-size:14px;
+    background-color:white;
+    ">&nbsp; <b>Brand Legend:</b> <br>
+&nbsp; KFC &nbsp; <i class="fa fa-map-marker fa-2x" style="color:red"></i> <br>&nbsp; McDonald's &nbsp; <i class="fa fa-map-marker fa-2x" style="color:blue"></i> <br>&nbsp; Subway &nbsp; <i class="fa fa-map-marker fa-2x" style="color:green"></i> <br>&nbsp; Burger King &nbsp; <i class="fa fa-map-marker fa-2x" style="color:purple"></i> <br>&nbsp; Pizza Hut &nbsp; <i class="fa fa-map-marker fa-2x" style="color:orange"></i> <br>&nbsp; Taco Bell &nbsp; <i class="fa fa-map-marker fa-2x" style="color:gray"></i> <br></div>
+</body>
+<script>
+    
+    
+            var map_002d748c4ba1f89a44bd14d8a0697480 = L.map(
+                "map_002d748c4ba1f89a44bd14d8a0697480",
+                {
+                    center: [52.520008, 13.404954],
+                    crs: L.CRS.EPSG3857,
+                    zoom: 13,
+                    zoomControl: true,
+                    preferCanvas: false,
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_91b796f70270865e6b16fb904763280a = L.tileLayer(
+                "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {"attribution": "Data by \u0026copy; \u003ca target=\"_blank\" href=\"http://openstreetmap.org\"\u003eOpenStreetMap\u003c/a\u003e, under \u003ca target=\"_blank\" href=\"http://www.openstreetmap.org/copyright\"\u003eODbL\u003c/a\u003e.", "detectRetina": false, "maxNativeZoom": 18, "maxZoom": 18, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            ).addTo(map_002d748c4ba1f89a44bd14d8a0697480);
+        
+    
+            var marker_9632f5f47a48f12865b95051d904d640 = L.marker(
+                [52.507576, 13.3906519],
+                {}
+            ).addTo(map_002d748c4ba1f89a44bd14d8a0697480);
+        
+    
+            var icon_750039685dec578762c35d45741bb239 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "utensils", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_9632f5f47a48f12865b95051d904d640.setIcon(icon_750039685dec578762c35d45741bb239);
+        
+    
+        var popup_e97499197738596e530db7daffa72f1c = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_f3042733a9c8475d144e80ebef98912d = $(`<div id="html_f3042733a9c8475d144e80ebef98912d" style="width: 100.0%; height: 100.0%;"><b>Name:</b> Kentucky Fried Chicken<br><b>Address:</b> Friedrichstraße 45, Berlin<br><b>Open Now:</b> False<br><b>Price Level:</b> 2<br><b>Total Ratings:</b> 1524<br><b>Rating:</b> 3.4</div>`)[0];
+                popup_e97499197738596e530db7daffa72f1c.setContent(html_f3042733a9c8475d144e80ebef98912d);
+            
+        
+
+        marker_9632f5f47a48f12865b95051d904d640.bindPopup(popup_e97499197738596e530db7daffa72f1c)
+        ;
+
+        
+    
+    
+            var marker_adcf539a3616b21a430e998ae3237139 = L.marker(
+                [52.5497105, 13.3897388],
+                {}
+            ).addTo(map_002d748c4ba1f89a44bd14d8a0697480);
+        
+    
+            var icon_78cf699eb4f1d78b90aa51a11e60537a = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "utensils", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_adcf539a3616b21a430e998ae3237139.setIcon(icon_78cf699eb4f1d78b90aa51a11e60537a);
+        
+    
+        var popup_40c275f96e9185cd0c425f064730688d = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_0c7a16a369d9fd0e30f66177c7096eb2 = $(`<div id="html_0c7a16a369d9fd0e30f66177c7096eb2" style="width: 100.0%; height: 100.0%;"><b>Name:</b> Kentucky Fried Chicken<br><b>Address:</b> Badstraße 4, Berlin<br><b>Open Now:</b> False<br><b>Price Level:</b> 2<br><b>Total Ratings:</b> 533<br><b>Rating:</b> 3.7</div>`)[0];
+                popup_40c275f96e9185cd0c425f064730688d.setContent(html_0c7a16a369d9fd0e30f66177c7096eb2);
+            
+        
+
+        marker_adcf539a3616b21a430e998ae3237139.bindPopup(popup_40c275f96e9185cd0c425f064730688d)
+        ;
+
+        
+    
+    
+            var marker_b1bf62c7bb72d0e985980238fc0ff9c5 = L.marker(
+                [52.504821, 13.337161],
+                {}
+            ).addTo(map_002d748c4ba1f89a44bd14d8a0697480);
+        
+    
+            var icon_d638e9ccdf67010b9b464100bffad72c = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "utensils", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_b1bf62c7bb72d0e985980238fc0ff9c5.setIcon(icon_d638e9ccdf67010b9b464100bffad72c);
+        
+    
+        var popup_6e42c73c92be0648efcd9bc1851c84e1 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_af606b81d3c385f03b22bf012659563a = $(`<div id="html_af606b81d3c385f03b22bf012659563a" style="width: 100.0%; height: 100.0%;"><b>Name:</b> KFC<br><b>Address:</b> Tauentzienstraße 9, Berlin<br><b>Open Now:</b> True<br><b>Price Level:</b> 2<br><b>Total Ratings:</b> 2784<br><b>Rating:</b> 3.5</div>`)[0];
+                popup_6e42c73c92be0648efcd9bc1851c84e1.setContent(html_af606b81d3c385f03b22bf012659563a);
+            
+        
+
+        marker_b1bf62c7bb72d0e985980238fc0ff9c5.bindPopup(popup_6e42c73c92be0648efcd9bc1851c84e1)
+        ;
+
+        
+    
+    
+            var marker_9e995bbb6b11b5c355955ba43f5e96af = L.marker(
+                [52.5206288, 13.4128286],
+                {}
+            ).addTo(map_002d748c4ba1f89a44bd14d8a0697480);
+        
+    
+            var icon_023d42b223f080a53f36b9b93c76a3aa = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "utensils", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_9e995bbb6b11b5c355955ba43f5e96af.setIcon(icon_023d42b223f080a53f36b9b93c76a3aa);
+        
+    
+        var popup_0978e5d2cf4e9b98675a3282f435902e = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_224b15575fdb987666baff67b337b351 = $(`<div id="html_224b15575fdb987666baff67b337b351" style="width: 100.0%; height: 100.0%;"><b>Name:</b> Kentucky Fried Chicken<br><b>Address:</b> Dircksenstraße 117, Berlin<br><b>Open Now:</b> True<br><b>Price Level:</b> 2<br><b>Total Ratings:</b> 3612<br><b>Rating:</b> 3.6</div>`)[0];
+                popup_0978e5d2cf4e9b98675a3282f435902e.setContent(html_224b15575fdb987666baff67b337b351);
+            
+        
+
+        marker_9e995bbb6b11b5c355955ba43f5e96af.bindPopup(popup_0978e5d2cf4e9b98675a3282f435902e)
+        ;
+
+        
+    
+    
+            var marker_a6455c4b77fcdd709cb7e19604d5a4f8 = L.marker(
+                [52.5103279, 13.3804413],
+                {}
+            ).addTo(map_002d748c4ba1f89a44bd14d8a0697480);
+        
+    
+            var icon_9db036b116cc43e293496aada47bf189 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "utensils", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_a6455c4b77fcdd709cb7e19604d5a4f8.setIcon(icon_9db036b116cc43e293496aada47bf189);
+        
+    
+        var popup_55e75cb856d0f6e4c95d1ad2cadc7000 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_71e816f95902b31f2592973cc884b42c = $(`<div id="html_71e816f95902b31f2592973cc884b42c" style="width: 100.0%; height: 100.0%;"><b>Name:</b> Kentucky Fried Chicken<br><b>Address:</b> Leipziger Pl. 12, Berlin<br><b>Open Now:</b> False<br><b>Price Level:</b> 2<br><b>Total Ratings:</b> 703<br><b>Rating:</b> 3.4</div>`)[0];
+                popup_55e75cb856d0f6e4c95d1ad2cadc7000.setContent(html_71e816f95902b31f2592973cc884b42c);
+            
+        
+
+        marker_a6455c4b77fcdd709cb7e19604d5a4f8.bindPopup(popup_55e75cb856d0f6e4c95d1ad2cadc7000)
+        ;
+
+        
+    
+    
+            var marker_175c77194c90cad29093f7517f8865ee = L.marker(
+                [52.5079553, 13.3741422],
+                {}
+            ).addTo(map_002d748c4ba1f89a44bd14d8a0697480);
+        
+    
+            var icon_be3389bf01a23433408d4bcbd7872998 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "utensils", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_175c77194c90cad29093f7517f8865ee.setIcon(icon_be3389bf01a23433408d4bcbd7872998);
+        
+    
+        var popup_5547ebe0601ce1a60efcad9c2a91a98d = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_99836b1cad24ee2e5ae6ea5022d3e002 = $(`<div id="html_99836b1cad24ee2e5ae6ea5022d3e002" style="width: 100.0%; height: 100.0%;"><b>Name:</b> Kentucky Fried Chicken<br><b>Address:</b> Alte Potsdamer Str. 7, Berlin<br><b>Open Now:</b> False<br><b>Price Level:</b> 2<br><b>Total Ratings:</b> 16<br><b>Rating:</b> 2.8</div>`)[0];
+                popup_5547ebe0601ce1a60efcad9c2a91a98d.setContent(html_99836b1cad24ee2e5ae6ea5022d3e002);
+            
+        
+
+        marker_175c77194c90cad29093f7517f8865ee.bindPopup(popup_5547ebe0601ce1a60efcad9c2a91a98d)
+        ;
+
+        
+    
+    
+            var marker_746c0a9ca434fa1922853e1f3540daac = L.marker(
+                [52.508823, 13.3756101],
+                {}
+            ).addTo(map_002d748c4ba1f89a44bd14d8a0697480);
+        
+    
+            var icon_dbaa6d88e3a6fec7fac7f7b3d00f0cdd = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "utensils", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_746c0a9ca434fa1922853e1f3540daac.setIcon(icon_dbaa6d88e3a6fec7fac7f7b3d00f0cdd);
+        
+    
+        var popup_9c826d0a09e312f6a9fe49e5649ef7c1 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_b5b06319c5a7394ed947c1e4e53d1851 = $(`<div id="html_b5b06319c5a7394ed947c1e4e53d1851" style="width: 100.0%; height: 100.0%;"><b>Name:</b> KFC - Kentucky Fried Chicken<br><b>Address:</b> Potsdamer Platz 11, Berlin<br><b>Open Now:</b> Unknown<br><b>Price Level:</b> Unknown<br><b>Total Ratings:</b> 3<br><b>Rating:</b> 3</div>`)[0];
+                popup_9c826d0a09e312f6a9fe49e5649ef7c1.setContent(html_b5b06319c5a7394ed947c1e4e53d1851);
+            
+        
+
+        marker_746c0a9ca434fa1922853e1f3540daac.bindPopup(popup_9c826d0a09e312f6a9fe49e5649ef7c1)
+        ;
+
+        
+    
+    
+            var marker_fc09b4cb0f644a8e0a5666c5e853b4ed = L.marker(
+                [52.49768359999999, 13.3541167],
+                {}
+            ).addTo(map_002d748c4ba1f89a44bd14d8a0697480);
+        
+    
+            var icon_a38ba5a0eba88d7a9b312d8ed81c32de = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "utensils", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_fc09b4cb0f644a8e0a5666c5e853b4ed.setIcon(icon_a38ba5a0eba88d7a9b312d8ed81c32de);
+        
+    
+        var popup_bc155288515d2a80b4c6ba002244715e = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_953188b3692cc992b856268994145b7f = $(`<div id="html_953188b3692cc992b856268994145b7f" style="width: 100.0%; height: 100.0%;"><b>Name:</b> KFC Ketten und Filter Clean Industriereinigung GmbH<br><b>Address:</b> Maaßenstraße 10, Berlin<br><b>Open Now:</b> Unknown<br><b>Price Level:</b> Unknown<br><b>Total Ratings:</b> 9<br><b>Rating:</b> 3.3</div>`)[0];
+                popup_bc155288515d2a80b4c6ba002244715e.setContent(html_953188b3692cc992b856268994145b7f);
+            
+        
+
+        marker_fc09b4cb0f644a8e0a5666c5e853b4ed.bindPopup(popup_bc155288515d2a80b4c6ba002244715e)
+        ;
+
+        
+    
+    
+            var marker_b4653c501d47dec4248496a8ceb52b5e = L.marker(
+                [52.5075315, 13.3736933],
+                {}
+            ).addTo(map_002d748c4ba1f89a44bd14d8a0697480);
+        
+    
+            var icon_442e35f4b200121e11d3f08f28663a07 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "utensils", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_b4653c501d47dec4248496a8ceb52b5e.setIcon(icon_442e35f4b200121e11d3f08f28663a07);
+        
+    
+        var popup_a795935dbd83332b2b4b69a5c288d7dd = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_a8de3ec82cdb955ceceb0639c7568af8 = $(`<div id="html_a8de3ec82cdb955ceceb0639c7568af8" style="width: 100.0%; height: 100.0%;"><b>Name:</b> Chi Kin am Potsdamer Platz<br><b>Address:</b> Alte Potsdamer Str. 7, Berlin<br><b>Open Now:</b> False<br><b>Price Level:</b> Unknown<br><b>Total Ratings:</b> 1<br><b>Rating:</b> 5</div>`)[0];
+                popup_a795935dbd83332b2b4b69a5c288d7dd.setContent(html_a8de3ec82cdb955ceceb0639c7568af8);
+            
+        
+
+        marker_b4653c501d47dec4248496a8ceb52b5e.bindPopup(popup_a795935dbd83332b2b4b69a5c288d7dd)
+        ;
+
+        
+    
+    
+            var marker_944d13797f3755d724cf8b789f010f32 = L.marker(
+                [52.5070151, 13.332541],
+                {}
+            ).addTo(map_002d748c4ba1f89a44bd14d8a0697480);
+        
+    
+            var icon_1bf42cbc61cee0d5f1d31864a9213f2e = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "utensils", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_944d13797f3755d724cf8b789f010f32.setIcon(icon_1bf42cbc61cee0d5f1d31864a9213f2e);
+        
+    
+        var popup_4ecb4b548ecb3a9c2ca6de916e18c5a6 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_70d3779671e03b036c31056d59924268 = $(`<div id="html_70d3779671e03b036c31056d59924268" style="width: 100.0%; height: 100.0%;"><b>Name:</b> McDonald's<br><b>Address:</b> Hardenbergpl. 11, Berlin<br><b>Open Now:</b> True<br><b>Price Level:</b> 2<br><b>Total Ratings:</b> 5364<br><b>Rating:</b> 3.7</div>`)[0];
+                popup_4ecb4b548ecb3a9c2ca6de916e18c5a6.setContent(html_70d3779671e03b036c31056d59924268);
+            
+        
+
+        marker_944d13797f3755d724cf8b789f010f32.bindPopup(popup_4ecb4b548ecb3a9c2ca6de916e18c5a6)
+        ;
+
+        
+    
+    
+            var marker_31300fef29b603101771d680d1a1e354 = L.marker(
+                [52.5203013, 13.386655],
+                {}
+            ).addTo(map_002d748c4ba1f89a44bd14d8a0697480);
+        
+    
+            var icon_36f2849fa4d000793993964ef319634b = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "utensils", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_31300fef29b603101771d680d1a1e354.setIcon(icon_36f2849fa4d000793993964ef319634b);
+        
+    
+        var popup_d0298287e69554aaed7f71df2bf49f28 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_5d944cfa9338e7ae1c47b74da2f8e4c8 = $(`<div id="html_5d944cfa9338e7ae1c47b74da2f8e4c8" style="width: 100.0%; height: 100.0%;"><b>Name:</b> McDonald's<br><b>Address:</b> Friedrichstraße 141-142, Berlin<br><b>Open Now:</b> True<br><b>Price Level:</b> 2<br><b>Total Ratings:</b> 814<br><b>Rating:</b> 3.7</div>`)[0];
+                popup_d0298287e69554aaed7f71df2bf49f28.setContent(html_5d944cfa9338e7ae1c47b74da2f8e4c8);
+            
+        
+
+        marker_31300fef29b603101771d680d1a1e354.bindPopup(popup_d0298287e69554aaed7f71df2bf49f28)
+        ;
+
+        
+    
+    
+            var marker_ea2c831eff65ecb1b027b2ba64fc1d00 = L.marker(
+                [52.5006965, 13.4362423],
+                {}
+            ).addTo(map_002d748c4ba1f89a44bd14d8a0697480);
+        
+    
+            var icon_9a7a6795b965bd62fff8e3ad93f4cbb1 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "utensils", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_ea2c831eff65ecb1b027b2ba64fc1d00.setIcon(icon_9a7a6795b965bd62fff8e3ad93f4cbb1);
+        
+    
+        var popup_e505d05750f562edab917bb1bd92c3b9 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_eb734d91d902fcbab95084f580eb536a = $(`<div id="html_eb734d91d902fcbab95084f580eb536a" style="width: 100.0%; height: 100.0%;"><b>Name:</b> McDonald's<br><b>Address:</b> Wrangelstraße 35, Berlin<br><b>Open Now:</b> True<br><b>Price Level:</b> 2<br><b>Total Ratings:</b> 1553<br><b>Rating:</b> 3.5</div>`)[0];
+                popup_e505d05750f562edab917bb1bd92c3b9.setContent(html_eb734d91d902fcbab95084f580eb536a);
+            
+        
+
+        marker_ea2c831eff65ecb1b027b2ba64fc1d00.bindPopup(popup_e505d05750f562edab917bb1bd92c3b9)
+        ;
+
+        
+    
+    
+            var marker_69f314bc664eadd4300b3f2c3b30a768 = L.marker(
+                [52.5073438, 13.3901606],
+                {}
+            ).addTo(map_002d748c4ba1f89a44bd14d8a0697480);
+        
+    
+            var icon_5a6babae8d157f6a39207e1429ac1f0d = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "utensils", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_69f314bc664eadd4300b3f2c3b30a768.setIcon(icon_5a6babae8d157f6a39207e1429ac1f0d);
+        
+    
+        var popup_2fad2887d7af444062b7267dca19864f = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_70950b927042def92a4a2e949961e178 = $(`<div id="html_70950b927042def92a4a2e949961e178" style="width: 100.0%; height: 100.0%;"><b>Name:</b> McDonald's<br><b>Address:</b> Friedrichstraße 207, Berlin<br><b>Open Now:</b> True<br><b>Price Level:</b> 2<br><b>Total Ratings:</b> 2356<br><b>Rating:</b> 3.5</div>`)[0];
+                popup_2fad2887d7af444062b7267dca19864f.setContent(html_70950b927042def92a4a2e949961e178);
+            
+        
+
+        marker_69f314bc664eadd4300b3f2c3b30a768.bindPopup(popup_2fad2887d7af444062b7267dca19864f)
+        ;
+
+        
+    
+    
+            var marker_59998be24a371b484fa1af562d3792f1 = L.marker(
+                [52.5403367, 13.4387841],
+                {}
+            ).addTo(map_002d748c4ba1f89a44bd14d8a0697480);
+        
+    
+            var icon_2d5b63eee110fee78de0f39319a5265a = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "utensils", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_59998be24a371b484fa1af562d3792f1.setIcon(icon_2d5b63eee110fee78de0f39319a5265a);
+        
+    
+        var popup_8bce907954a40dd9ec6438210e0975a1 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_159a79e3f6821b3cbcfafc6446c8c4e3 = $(`<div id="html_159a79e3f6821b3cbcfafc6446c8c4e3" style="width: 100.0%; height: 100.0%;"><b>Name:</b> McDonald's<br><b>Address:</b> Greifswalder Str. 80, Berlin<br><b>Open Now:</b> False<br><b>Price Level:</b> 2<br><b>Total Ratings:</b> 831<br><b>Rating:</b> 3.1</div>`)[0];
+                popup_8bce907954a40dd9ec6438210e0975a1.setContent(html_159a79e3f6821b3cbcfafc6446c8c4e3);
+            
+        
+
+        marker_59998be24a371b484fa1af562d3792f1.bindPopup(popup_8bce907954a40dd9ec6438210e0975a1)
+        ;
+
+        
+    
+    
+            var marker_98230e71c13f11a8d789803041d24919 = L.marker(
+                [52.5200586, 13.3881294],
+                {}
+            ).addTo(map_002d748c4ba1f89a44bd14d8a0697480);
+        
+    
+            var icon_8e8ae9b85ae64de9edf0f079ea801ae8 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "utensils", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_98230e71c13f11a8d789803041d24919.setIcon(icon_8e8ae9b85ae64de9edf0f079ea801ae8);
+        
+    
+        var popup_47566470a9c204dcacb66b0690eb7778 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_af135691e229126a3a8a8325fd5779b0 = $(`<div id="html_af135691e229126a3a8a8325fd5779b0" style="width: 100.0%; height: 100.0%;"><b>Name:</b> McDonald's<br><b>Address:</b> Friedrichstr. 141-142 Ecke Georgenstr. (S-Bahnhof, Berlin<br><b>Open Now:</b> True<br><b>Price Level:</b> 2<br><b>Total Ratings:</b> 1913<br><b>Rating:</b> 3.3</div>`)[0];
+                popup_47566470a9c204dcacb66b0690eb7778.setContent(html_af135691e229126a3a8a8325fd5779b0);
+            
+        
+
+        marker_98230e71c13f11a8d789803041d24919.bindPopup(popup_47566470a9c204dcacb66b0690eb7778)
+        ;
+
+        
+    
+    
+            var marker_aeafbbf396f420c40b415ac3fb6749fc = L.marker(
+                [52.4820832, 13.4330327],
+                {}
+            ).addTo(map_002d748c4ba1f89a44bd14d8a0697480);
+        
+    
+            var icon_aa50243a105c0714cb15e4b032bb7731 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "utensils", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_aeafbbf396f420c40b415ac3fb6749fc.setIcon(icon_aa50243a105c0714cb15e4b032bb7731);
+        
+    
+        var popup_378155126616c1156a918ebe9e10a31b = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_0f18174b20e4e4ea4aba2a4c827c06a7 = $(`<div id="html_0f18174b20e4e4ea4aba2a4c827c06a7" style="width: 100.0%; height: 100.0%;"><b>Name:</b> McDonald's<br><b>Address:</b> Karl-Marx-Straße 66, Berlin<br><b>Open Now:</b> False<br><b>Price Level:</b> 2<br><b>Total Ratings:</b> 215<br><b>Rating:</b> 3.1</div>`)[0];
+                popup_378155126616c1156a918ebe9e10a31b.setContent(html_0f18174b20e4e4ea4aba2a4c827c06a7);
+            
+        
+
+        marker_aeafbbf396f420c40b415ac3fb6749fc.bindPopup(popup_378155126616c1156a918ebe9e10a31b)
+        ;
+
+        
+    
+    
+            var marker_b88a63a2e6640c29b8b186b29d5c43f7 = L.marker(
+                [52.4750795, 13.3680156],
+                {}
+            ).addTo(map_002d748c4ba1f89a44bd14d8a0697480);
+        
+    
+            var icon_83d5ad8178aa03bd6417aabc0cb80ccb = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "utensils", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_b88a63a2e6640c29b8b186b29d5c43f7.setIcon(icon_83d5ad8178aa03bd6417aabc0cb80ccb);
+        
+    
+        var popup_da90274fe61e67898aa99a5269c2b9f6 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_4dc6b885784be9b448e87b9da0837c3d = $(`<div id="html_4dc6b885784be9b448e87b9da0837c3d" style="width: 100.0%; height: 100.0%;"><b>Name:</b> McDonald's<br><b>Address:</b> Werner-Voß-Damm 62, Berlin<br><b>Open Now:</b> True<br><b>Price Level:</b> 2<br><b>Total Ratings:</b> 754<br><b>Rating:</b> 3</div>`)[0];
+                popup_da90274fe61e67898aa99a5269c2b9f6.setContent(html_4dc6b885784be9b448e87b9da0837c3d);
+            
+        
+
+        marker_b88a63a2e6640c29b8b186b29d5c43f7.bindPopup(popup_da90274fe61e67898aa99a5269c2b9f6)
+        ;
+
+        
+    
+    
+            var marker_99790f9e87b7a6b4e0a085e91bfc48ed = L.marker(
+                [52.50656679999999, 13.3063071],
+                {}
+            ).addTo(map_002d748c4ba1f89a44bd14d8a0697480);
+        
+    
+            var icon_85d97898ba7c9e4346efc871268c5608 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "utensils", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_99790f9e87b7a6b4e0a085e91bfc48ed.setIcon(icon_85d97898ba7c9e4346efc871268c5608);
+        
+    
+        var popup_5a84ddd909f85b219f336c075076a910 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_9b2df1da647df27c4a20655d36a31182 = $(`<div id="html_9b2df1da647df27c4a20655d36a31182" style="width: 100.0%; height: 100.0%;"><b>Name:</b> McDonald's<br><b>Address:</b> Kantstraße 111a, Berlin<br><b>Open Now:</b> True<br><b>Price Level:</b> 2<br><b>Total Ratings:</b> 2175<br><b>Rating:</b> 3.5</div>`)[0];
+                popup_5a84ddd909f85b219f336c075076a910.setContent(html_9b2df1da647df27c4a20655d36a31182);
+            
+        
+
+        marker_99790f9e87b7a6b4e0a085e91bfc48ed.bindPopup(popup_5a84ddd909f85b219f336c075076a910)
+        ;
+
+        
+    
+    
+            var marker_2ec9410427a4684f5909809d5a6e7366 = L.marker(
+                [52.5211437, 13.4121684],
+                {}
+            ).addTo(map_002d748c4ba1f89a44bd14d8a0697480);
+        
+    
+            var icon_98464435e34408ff7f5b4963a02ecdac = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "utensils", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_2ec9410427a4684f5909809d5a6e7366.setIcon(icon_98464435e34408ff7f5b4963a02ecdac);
+        
+    
+        var popup_e7e2df59b8a91ebf6e9e2422de401d91 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_b546e8d7914569278d52246fb8f138ea = $(`<div id="html_b546e8d7914569278d52246fb8f138ea" style="width: 100.0%; height: 100.0%;"><b>Name:</b> McDonald's<br><b>Address:</b> Bahnhof Berlin Alexanderplatz, Alexanderpl. 1, Berlin<br><b>Open Now:</b> True<br><b>Price Level:</b> 2<br><b>Total Ratings:</b> 765<br><b>Rating:</b> 2.7</div>`)[0];
+                popup_e7e2df59b8a91ebf6e9e2422de401d91.setContent(html_b546e8d7914569278d52246fb8f138ea);
+            
+        
+
+        marker_2ec9410427a4684f5909809d5a6e7366.bindPopup(popup_e7e2df59b8a91ebf6e9e2422de401d91)
+        ;
+
+        
+    
+    
+            var marker_24ab3b3d25ac37333cfcac2d15494543 = L.marker(
+                [52.51026, 13.3795719],
+                {}
+            ).addTo(map_002d748c4ba1f89a44bd14d8a0697480);
+        
+    
+            var icon_a67946d823c1cede940bccfc261d86e1 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "utensils", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_24ab3b3d25ac37333cfcac2d15494543.setIcon(icon_a67946d823c1cede940bccfc261d86e1);
+        
+    
+        var popup_298af417fa6c9f7e642d0e3c53553e7c = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_cd9eb56433c896aa1b379a20e4bc21e0 = $(`<div id="html_cd9eb56433c896aa1b379a20e4bc21e0" style="width: 100.0%; height: 100.0%;"><b>Name:</b> McDonald's<br><b>Address:</b> Leipziger Pl. 12-13, Berlin<br><b>Open Now:</b> False<br><b>Price Level:</b> 2<br><b>Total Ratings:</b> 1489<br><b>Rating:</b> 3.5</div>`)[0];
+                popup_298af417fa6c9f7e642d0e3c53553e7c.setContent(html_cd9eb56433c896aa1b379a20e4bc21e0);
+            
+        
+
+        marker_24ab3b3d25ac37333cfcac2d15494543.bindPopup(popup_298af417fa6c9f7e642d0e3c53553e7c)
+        ;
+
+        
+    
+    
+            var marker_91464e0968ee0f03eea70ace0cbb384c = L.marker(
+                [52.5096557, 13.3052525],
+                {}
+            ).addTo(map_002d748c4ba1f89a44bd14d8a0697480);
+        
+    
+            var icon_08ed5ca2f7d2663a7da48c1feec3d53b = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "utensils", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_91464e0968ee0f03eea70ace0cbb384c.setIcon(icon_08ed5ca2f7d2663a7da48c1feec3d53b);
+        
+    
+        var popup_56d5a504edc08653eaca428cd655c600 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_b2bad2c3d69b6b4f8e48f634947f1048 = $(`<div id="html_b2bad2c3d69b6b4f8e48f634947f1048" style="width: 100.0%; height: 100.0%;"><b>Name:</b> McDonald's<br><b>Address:</b> Wilmersdorfer Str. 46, Berlin<br><b>Open Now:</b> False<br><b>Price Level:</b> 2<br><b>Total Ratings:</b> 212<br><b>Rating:</b> 3.4</div>`)[0];
+                popup_56d5a504edc08653eaca428cd655c600.setContent(html_b2bad2c3d69b6b4f8e48f634947f1048);
+            
+        
+
+        marker_91464e0968ee0f03eea70ace0cbb384c.bindPopup(popup_56d5a504edc08653eaca428cd655c600)
+        ;
+
+        
+    
+    
+            var marker_0c4a1611190d432eb6cc97edc7d8fe21 = L.marker(
+                [52.4866524, 13.424934],
+                {}
+            ).addTo(map_002d748c4ba1f89a44bd14d8a0697480);
+        
+    
+            var icon_cf22953fee69376bdba4a3a007a11248 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "utensils", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_0c4a1611190d432eb6cc97edc7d8fe21.setIcon(icon_cf22953fee69376bdba4a3a007a11248);
+        
+    
+        var popup_674c2b17f17c7454c5d32c00fe57d5bd = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_aa624dbddacf76c0a595862da6c15001 = $(`<div id="html_aa624dbddacf76c0a595862da6c15001" style="width: 100.0%; height: 100.0%;"><b>Name:</b> McDonald's<br><b>Address:</b> Hermannplatz 2-3, Berlin<br><b>Open Now:</b> True<br><b>Price Level:</b> 2<br><b>Total Ratings:</b> 1792<br><b>Rating:</b> 2.9</div>`)[0];
+                popup_674c2b17f17c7454c5d32c00fe57d5bd.setContent(html_aa624dbddacf76c0a595862da6c15001);
+            
+        
+
+        marker_0c4a1611190d432eb6cc97edc7d8fe21.bindPopup(popup_674c2b17f17c7454c5d32c00fe57d5bd)
+        ;
+
+        
+    
+    
+            var marker_d7ba233b3634f29f7f22d3f0cb83a478 = L.marker(
+                [52.5256425, 13.3685773],
+                {}
+            ).addTo(map_002d748c4ba1f89a44bd14d8a0697480);
+        
+    
+            var icon_17a29ad3b1ce51d5d2aad381341078bd = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "utensils", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_d7ba233b3634f29f7f22d3f0cb83a478.setIcon(icon_17a29ad3b1ce51d5d2aad381341078bd);
+        
+    
+        var popup_5cd099c5827c479512b2decfdac2fcec = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_ffbd5fa7fb2d38914cf21779b9157f0d = $(`<div id="html_ffbd5fa7fb2d38914cf21779b9157f0d" style="width: 100.0%; height: 100.0%;"><b>Name:</b> McDonald's<br><b>Address:</b> Europaplatz 1, Berlin<br><b>Open Now:</b> True<br><b>Price Level:</b> 2<br><b>Total Ratings:</b> 2126<br><b>Rating:</b> 2.9</div>`)[0];
+                popup_5cd099c5827c479512b2decfdac2fcec.setContent(html_ffbd5fa7fb2d38914cf21779b9157f0d);
+            
+        
+
+        marker_d7ba233b3634f29f7f22d3f0cb83a478.bindPopup(popup_5cd099c5827c479512b2decfdac2fcec)
+        ;
+
+        
+    
+    
+            var marker_bde6c447afdd089a02673d934905a9d3 = L.marker(
+                [52.5488325, 13.388893],
+                {}
+            ).addTo(map_002d748c4ba1f89a44bd14d8a0697480);
+        
+    
+            var icon_4b527c093a9f7aa132225eb148b06f9e = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "utensils", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_bde6c447afdd089a02673d934905a9d3.setIcon(icon_4b527c093a9f7aa132225eb148b06f9e);
+        
+    
+        var popup_5948b5357910a555bf92bbce40477737 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_56dd6c912d637f1d960b4e10da57a79b = $(`<div id="html_56dd6c912d637f1d960b4e10da57a79b" style="width: 100.0%; height: 100.0%;"><b>Name:</b> McDonald's<br><b>Address:</b> Hanne-Sobek-Platz 1, Berlin<br><b>Open Now:</b> True<br><b>Price Level:</b> 2<br><b>Total Ratings:</b> 2032<br><b>Rating:</b> 3.3</div>`)[0];
+                popup_5948b5357910a555bf92bbce40477737.setContent(html_56dd6c912d637f1d960b4e10da57a79b);
+            
+        
+
+        marker_bde6c447afdd089a02673d934905a9d3.bindPopup(popup_5948b5357910a555bf92bbce40477737)
+        ;
+
+        
+    
+    
+            var marker_3e84dc0522ff403d28d32ae4c18da537 = L.marker(
+                [52.50950950000001, 13.4349292],
+                {}
+            ).addTo(map_002d748c4ba1f89a44bd14d8a0697480);
+        
+    
+            var icon_5c3e63e5705e51e6f4ef25566bacb23f = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "utensils", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_3e84dc0522ff403d28d32ae4c18da537.setIcon(icon_5c3e63e5705e51e6f4ef25566bacb23f);
+        
+    
+        var popup_a015b3e4abe992aedc461458f6488b60 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_299f7d2ed7fa6f5ce84b6e1b149243fd = $(`<div id="html_299f7d2ed7fa6f5ce84b6e1b149243fd" style="width: 100.0%; height: 100.0%;"><b>Name:</b> McDonald's<br><b>Address:</b> Am Ostbahnhof 9, Berlin<br><b>Open Now:</b> True<br><b>Price Level:</b> 2<br><b>Total Ratings:</b> 978<br><b>Rating:</b> 2.9</div>`)[0];
+                popup_a015b3e4abe992aedc461458f6488b60.setContent(html_299f7d2ed7fa6f5ce84b6e1b149243fd);
+            
+        
+
+        marker_3e84dc0522ff403d28d32ae4c18da537.bindPopup(popup_a015b3e4abe992aedc461458f6488b60)
+        ;
+
+        
+    
+    
+            var marker_16dd91c5e716ffd333bc2df5e6540428 = L.marker(
+                [52.4696791, 13.371158],
+                {}
+            ).addTo(map_002d748c4ba1f89a44bd14d8a0697480);
+        
+    
+            var icon_239b21575ffbd613866071b261bb00ec = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "utensils", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_16dd91c5e716ffd333bc2df5e6540428.setIcon(icon_239b21575ffbd613866071b261bb00ec);
+        
+    
+        var popup_69347dbd5311f6bce08128c948d001c8 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_176b150146f7f380723a0dabd7cfc945 = $(`<div id="html_176b150146f7f380723a0dabd7cfc945" style="width: 100.0%; height: 100.0%;"><b>Name:</b> McDonald's<br><b>Address:</b> Alboinstraße 4, Berlin<br><b>Open Now:</b> True<br><b>Price Level:</b> 2<br><b>Total Ratings:</b> 3342<br><b>Rating:</b> 3.5</div>`)[0];
+                popup_69347dbd5311f6bce08128c948d001c8.setContent(html_176b150146f7f380723a0dabd7cfc945);
+            
+        
+
+        marker_16dd91c5e716ffd333bc2df5e6540428.bindPopup(popup_69347dbd5311f6bce08128c948d001c8)
+        ;
+
+        
+    
+    
+            var marker_430435139b0f161844601f7d80644801 = L.marker(
+                [52.5199019, 13.4147658],
+                {}
+            ).addTo(map_002d748c4ba1f89a44bd14d8a0697480);
+        
+    
+            var icon_6dd1104d1e86ac9df725e9aafa65de80 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "utensils", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_430435139b0f161844601f7d80644801.setIcon(icon_6dd1104d1e86ac9df725e9aafa65de80);
+        
+    
+        var popup_babb3522e8751159f6d4a211c8666764 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_80f933364bc9e55410bf942bc7bf9c4d = $(`<div id="html_80f933364bc9e55410bf942bc7bf9c4d" style="width: 100.0%; height: 100.0%;"><b>Name:</b> McDonald's<br><b>Address:</b> Einkaufszentrum Alexa, Grunerstraße 20, Berlin<br><b>Open Now:</b> False<br><b>Price Level:</b> 2<br><b>Total Ratings:</b> 1123<br><b>Rating:</b> 3.6</div>`)[0];
+                popup_babb3522e8751159f6d4a211c8666764.setContent(html_80f933364bc9e55410bf942bc7bf9c4d);
+            
+        
+
+        marker_430435139b0f161844601f7d80644801.bindPopup(popup_babb3522e8751159f6d4a211c8666764)
+        ;
+
+        
+    
+    
+            var marker_0cf6d5cb1e57b8610c62960ad28d23df = L.marker(
+                [52.46523389999999, 13.3279326],
+                {}
+            ).addTo(map_002d748c4ba1f89a44bd14d8a0697480);
+        
+    
+            var icon_c13ef003d6141956fd8dfc5603d8c995 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "utensils", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_0cf6d5cb1e57b8610c62960ad28d23df.setIcon(icon_c13ef003d6141956fd8dfc5603d8c995);
+        
+    
+        var popup_799cd3f896f1e7e9384858a9754bd42d = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_e265bd6aa850535dc6632783f8988d48 = $(`<div id="html_e265bd6aa850535dc6632783f8988d48" style="width: 100.0%; height: 100.0%;"><b>Name:</b> McDonald's<br><b>Address:</b> Walther-Schreiber-Platz 1, Berlin<br><b>Open Now:</b> False<br><b>Price Level:</b> 2<br><b>Total Ratings:</b> 193<br><b>Rating:</b> 3.3</div>`)[0];
+                popup_799cd3f896f1e7e9384858a9754bd42d.setContent(html_e265bd6aa850535dc6632783f8988d48);
+            
+        
+
+        marker_0cf6d5cb1e57b8610c62960ad28d23df.bindPopup(popup_799cd3f896f1e7e9384858a9754bd42d)
+        ;
+
+        
+    
+    
+            var marker_4fa468abe1b85d9abf35627eaad33f93 = L.marker(
+                [52.4696046, 13.442183],
+                {}
+            ).addTo(map_002d748c4ba1f89a44bd14d8a0697480);
+        
+    
+            var icon_b98bcba1209ee0712c99f410dafd0cef = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "utensils", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_4fa468abe1b85d9abf35627eaad33f93.setIcon(icon_b98bcba1209ee0712c99f410dafd0cef);
+        
+    
+        var popup_c0967758e8fb777775092fd7add4000f = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_46186ca9395d1234b0146fe4024134f7 = $(`<div id="html_46186ca9395d1234b0146fe4024134f7" style="width: 100.0%; height: 100.0%;"><b>Name:</b> McDonald's<br><b>Address:</b> Saalestraße 83, Berlin<br><b>Open Now:</b> True<br><b>Price Level:</b> 2<br><b>Total Ratings:</b> 504<br><b>Rating:</b> 3</div>`)[0];
+                popup_c0967758e8fb777775092fd7add4000f.setContent(html_46186ca9395d1234b0146fe4024134f7);
+            
+        
+
+        marker_4fa468abe1b85d9abf35627eaad33f93.bindPopup(popup_c0967758e8fb777775092fd7add4000f)
+        ;
+
+        
+    
+    
+            var marker_609535ea43fc2779170549ca286dc002 = L.marker(
+                [52.51034139999999, 13.433161],
+                {}
+            ).addTo(map_002d748c4ba1f89a44bd14d8a0697480);
+        
+    
+            var icon_90e1af9f95411c90dd44bc9baa4e099f = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "utensils", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_609535ea43fc2779170549ca286dc002.setIcon(icon_90e1af9f95411c90dd44bc9baa4e099f);
+        
+    
+        var popup_089f13e739d4a4c112b6cc2086acace5 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_1c6e2da5ce8ee7e14b900b789a3ec26c = $(`<div id="html_1c6e2da5ce8ee7e14b900b789a3ec26c" style="width: 100.0%; height: 100.0%;"><b>Name:</b> Subway<br><b>Address:</b> Am Ostbahnhof 5-7, Berlin<br><b>Open Now:</b> False<br><b>Price Level:</b> 2<br><b>Total Ratings:</b> 554<br><b>Rating:</b> 3.5</div>`)[0];
+                popup_089f13e739d4a4c112b6cc2086acace5.setContent(html_1c6e2da5ce8ee7e14b900b789a3ec26c);
+            
+        
+
+        marker_609535ea43fc2779170549ca286dc002.bindPopup(popup_089f13e739d4a4c112b6cc2086acace5)
+        ;
+
+        
+    
+    
+            var marker_ae172ac173d8fff2bb843bc12ef720d8 = L.marker(
+                [52.4871092, 13.4243614],
+                {}
+            ).addTo(map_002d748c4ba1f89a44bd14d8a0697480);
+        
+    
+            var icon_17762758f9654d1933f33b3d7970cec0 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "utensils", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_ae172ac173d8fff2bb843bc12ef720d8.setIcon(icon_17762758f9654d1933f33b3d7970cec0);
+        
+    
+        var popup_cf876d771dbdeee8778b70e54a4e1bdb = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_ac71ddc66004183fd6a3c8daee57a240 = $(`<div id="html_ac71ddc66004183fd6a3c8daee57a240" style="width: 100.0%; height: 100.0%;"><b>Name:</b> Subway<br><b>Address:</b> Hasenheide 1-4, Berlin<br><b>Open Now:</b> False<br><b>Price Level:</b> 2<br><b>Total Ratings:</b> 86<br><b>Rating:</b> 2.8</div>`)[0];
+                popup_cf876d771dbdeee8778b70e54a4e1bdb.setContent(html_ac71ddc66004183fd6a3c8daee57a240);
+            
+        
+
+        marker_ae172ac173d8fff2bb843bc12ef720d8.bindPopup(popup_cf876d771dbdeee8778b70e54a4e1bdb)
+        ;
+
+        
+    
+    
+            var marker_437ed0b26351c814e569f0f93ad5999f = L.marker(
+                [52.455507, 13.384703],
+                {}
+            ).addTo(map_002d748c4ba1f89a44bd14d8a0697480);
+        
+    
+            var icon_ec3be7a459c566834d71773ce27254ec = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "utensils", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_437ed0b26351c814e569f0f93ad5999f.setIcon(icon_ec3be7a459c566834d71773ce27254ec);
+        
+    
+        var popup_05c080144e421761fd57fa72ccb25991 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_eac980c82db42b98f0bc5f3cfe75fc91 = $(`<div id="html_eac980c82db42b98f0bc5f3cfe75fc91" style="width: 100.0%; height: 100.0%;"><b>Name:</b> Subway<br><b>Address:</b> Tempelhofer Damm 227, Berlin<br><b>Open Now:</b> False<br><b>Price Level:</b> 2<br><b>Total Ratings:</b> 225<br><b>Rating:</b> 4.2</div>`)[0];
+                popup_05c080144e421761fd57fa72ccb25991.setContent(html_eac980c82db42b98f0bc5f3cfe75fc91);
+            
+        
+
+        marker_437ed0b26351c814e569f0f93ad5999f.bindPopup(popup_05c080144e421761fd57fa72ccb25991)
+        ;
+
+        
+    
+    
+            var marker_62df4f245e6ef6f3396743efdd3792c6 = L.marker(
+                [52.5139739, 13.4755277],
+                {}
+            ).addTo(map_002d748c4ba1f89a44bd14d8a0697480);
+        
+    
+            var icon_5da125ca6782e877965655627adb1e66 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "utensils", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_62df4f245e6ef6f3396743efdd3792c6.setIcon(icon_5da125ca6782e877965655627adb1e66);
+        
+    
+        var popup_4cd560128d7a91cd1292278e7d8e9669 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_0ae8374619ca862e6928bb029b580193 = $(`<div id="html_0ae8374619ca862e6928bb029b580193" style="width: 100.0%; height: 100.0%;"><b>Name:</b> Subway<br><b>Address:</b> Frankfurter Allee 113, Berlin<br><b>Open Now:</b> False<br><b>Price Level:</b> 2<br><b>Total Ratings:</b> 107<br><b>Rating:</b> 3.1</div>`)[0];
+                popup_4cd560128d7a91cd1292278e7d8e9669.setContent(html_0ae8374619ca862e6928bb029b580193);
+            
+        
+
+        marker_62df4f245e6ef6f3396743efdd3792c6.bindPopup(popup_4cd560128d7a91cd1292278e7d8e9669)
+        ;
+
+        
+    
+    
+            var marker_5c839747805f25388a6080d9de7fdd8a = L.marker(
+                [52.51517519999999, 13.4627314],
+                {}
+            ).addTo(map_002d748c4ba1f89a44bd14d8a0697480);
+        
+    
+            var icon_9bd90c2a56450fa2f75924fc4eb55484 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "utensils", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_5c839747805f25388a6080d9de7fdd8a.setIcon(icon_9bd90c2a56450fa2f75924fc4eb55484);
+        
+    
+        var popup_6cee183cfe9ed276cd37fcf528cd8fef = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_4716f4b2cb8ba892502f8497c439e86e = $(`<div id="html_4716f4b2cb8ba892502f8497c439e86e" style="width: 100.0%; height: 100.0%;"><b>Name:</b> Subway<br><b>Address:</b> Frankfurter Allee 41, Berlin<br><b>Open Now:</b> True<br><b>Price Level:</b> 2<br><b>Total Ratings:</b> 444<br><b>Rating:</b> 4</div>`)[0];
+                popup_6cee183cfe9ed276cd37fcf528cd8fef.setContent(html_4716f4b2cb8ba892502f8497c439e86e);
+            
+        
+
+        marker_5c839747805f25388a6080d9de7fdd8a.bindPopup(popup_6cee183cfe9ed276cd37fcf528cd8fef)
+        ;
+
+        
+    
+    
+            var marker_49cb6016ffaf09092a22b4095ba0f2ce = L.marker(
+                [52.51593219999999, 13.3899786],
+                {}
+            ).addTo(map_002d748c4ba1f89a44bd14d8a0697480);
+        
+    
+            var icon_d28e5fc0389fb6530ded455f8ee1c4cb = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "utensils", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_49cb6016ffaf09092a22b4095ba0f2ce.setIcon(icon_d28e5fc0389fb6530ded455f8ee1c4cb);
+        
+    
+        var popup_350fefd4acb7f912537ed250b3548a97 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_fd9c3932c55cfe3402f1931bd06bf0ae = $(`<div id="html_fd9c3932c55cfe3402f1931bd06bf0ae" style="width: 100.0%; height: 100.0%;"><b>Name:</b> Subway<br><b>Address:</b> Behrenstraße 47, Berlin<br><b>Open Now:</b> False<br><b>Price Level:</b> 2<br><b>Total Ratings:</b> 702<br><b>Rating:</b> 3.1</div>`)[0];
+                popup_350fefd4acb7f912537ed250b3548a97.setContent(html_fd9c3932c55cfe3402f1931bd06bf0ae);
+            
+        
+
+        marker_49cb6016ffaf09092a22b4095ba0f2ce.bindPopup(popup_350fefd4acb7f912537ed250b3548a97)
+        ;
+
+        
+    
+    
+            var marker_fbe19e469c066f68420623c5d33ddc44 = L.marker(
+                [52.469275, 13.3854948],
+                {}
+            ).addTo(map_002d748c4ba1f89a44bd14d8a0697480);
+        
+    
+            var icon_ef36aabe080195a93f61ffa27835b0ef = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "utensils", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_fbe19e469c066f68420623c5d33ddc44.setIcon(icon_ef36aabe080195a93f61ffa27835b0ef);
+        
+    
+        var popup_5848ff8870721a805ce68f5b23428cb2 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_5ce7462a533d6226ccb1b01b943f65fe = $(`<div id="html_5ce7462a533d6226ccb1b01b943f65fe" style="width: 100.0%; height: 100.0%;"><b>Name:</b> Subway<br><b>Address:</b> Tempelhofer Damm, Berlin<br><b>Open Now:</b> Unknown<br><b>Price Level:</b> Unknown<br><b>Total Ratings:</b> 1<br><b>Rating:</b> 1</div>`)[0];
+                popup_5848ff8870721a805ce68f5b23428cb2.setContent(html_5ce7462a533d6226ccb1b01b943f65fe);
+            
+        
+
+        marker_fbe19e469c066f68420623c5d33ddc44.bindPopup(popup_5848ff8870721a805ce68f5b23428cb2)
+        ;
+
+        
+    
+    
+            var marker_2742657898469de96a24b859e4baae34 = L.marker(
+                [52.4989796, 13.4448262],
+                {}
+            ).addTo(map_002d748c4ba1f89a44bd14d8a0697480);
+        
+    
+            var icon_a283bef1c06ba0a10e3bf84a39a7f7fb = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "utensils", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_2742657898469de96a24b859e4baae34.setIcon(icon_a283bef1c06ba0a10e3bf84a39a7f7fb);
+        
+    
+        var popup_4288bf694c54b6b916a98baa68982f31 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_808c921c050c7d6df4212a89bf89dbcf = $(`<div id="html_808c921c050c7d6df4212a89bf89dbcf" style="width: 100.0%; height: 100.0%;"><b>Name:</b> Subway Event Berlin GmbH<br><b>Address:</b> Cuvrystraße 9, Berlin<br><b>Open Now:</b> Unknown<br><b>Price Level:</b> Unknown<br><b>Total Ratings:</b> 2<br><b>Rating:</b> 3</div>`)[0];
+                popup_4288bf694c54b6b916a98baa68982f31.setContent(html_808c921c050c7d6df4212a89bf89dbcf);
+            
+        
+
+        marker_2742657898469de96a24b859e4baae34.bindPopup(popup_4288bf694c54b6b916a98baa68982f31)
+        ;
+
+        
+    
+    
+            var marker_6ee044a916746886433c22503bff76fb = L.marker(
+                [52.5226571, 13.4126856],
+                {}
+            ).addTo(map_002d748c4ba1f89a44bd14d8a0697480);
+        
+    
+            var icon_2c07d6479f2ee5eae2b2d7695de0dbde = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "utensils", "iconColor": "white", "markerColor": "purple", "prefix": "glyphicon"}
+            );
+            marker_6ee044a916746886433c22503bff76fb.setIcon(icon_2c07d6479f2ee5eae2b2d7695de0dbde);
+        
+    
+        var popup_b6c48ac172a9a09df63a8998acc55d7c = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_aab93b1da1f5abf579b2e86209f46d19 = $(`<div id="html_aab93b1da1f5abf579b2e86209f46d19" style="width: 100.0%; height: 100.0%;"><b>Name:</b> Burger King<br><b>Address:</b> Alexanderpl. 8, Berlin<br><b>Open Now:</b> True<br><b>Price Level:</b> 2<br><b>Total Ratings:</b> 2489<br><b>Rating:</b> 2.8</div>`)[0];
+                popup_b6c48ac172a9a09df63a8998acc55d7c.setContent(html_aab93b1da1f5abf579b2e86209f46d19);
+            
+        
+
+        marker_6ee044a916746886433c22503bff76fb.bindPopup(popup_b6c48ac172a9a09df63a8998acc55d7c)
+        ;
+
+        
+    
+    
+            var marker_f68eb109aaf372f0c01775e0fd18836a = L.marker(
+                [52.4804456, 13.3851855],
+                {}
+            ).addTo(map_002d748c4ba1f89a44bd14d8a0697480);
+        
+    
+            var icon_2952f434d6d134b537ce9487f15fa8f8 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "utensils", "iconColor": "white", "markerColor": "purple", "prefix": "glyphicon"}
+            );
+            marker_f68eb109aaf372f0c01775e0fd18836a.setIcon(icon_2952f434d6d134b537ce9487f15fa8f8);
+        
+    
+        var popup_24752871eefd12df0a496caf0f87581f = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_c0975c382573c4ed4f8ad06db85e1cc1 = $(`<div id="html_c0975c382573c4ed4f8ad06db85e1cc1" style="width: 100.0%; height: 100.0%;"><b>Name:</b> Burger King Deutschland GmbH<br><b>Address:</b> Tempelhofer Damm 28/30, Berlin<br><b>Open Now:</b> True<br><b>Price Level:</b> 2<br><b>Total Ratings:</b> 2737<br><b>Rating:</b> 3.3</div>`)[0];
+                popup_24752871eefd12df0a496caf0f87581f.setContent(html_c0975c382573c4ed4f8ad06db85e1cc1);
+            
+        
+
+        marker_f68eb109aaf372f0c01775e0fd18836a.bindPopup(popup_24752871eefd12df0a496caf0f87581f)
+        ;
+
+        
+    
+    
+            var marker_6815be40d1c1f20659fb47ef33a0c323 = L.marker(
+                [52.5294609, 13.4579736],
+                {}
+            ).addTo(map_002d748c4ba1f89a44bd14d8a0697480);
+        
+    
+            var icon_45642171b178a7962c64852d3cbc9937 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "utensils", "iconColor": "white", "markerColor": "purple", "prefix": "glyphicon"}
+            );
+            marker_6815be40d1c1f20659fb47ef33a0c323.setIcon(icon_45642171b178a7962c64852d3cbc9937);
+        
+    
+        var popup_5d156bed0fa3dd4568d9348b5b642733 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_ca771abdd2ab69f1bc0cd62dc45c6dcf = $(`<div id="html_ca771abdd2ab69f1bc0cd62dc45c6dcf" style="width: 100.0%; height: 100.0%;"><b>Name:</b> BURGER KING Deutschland GmbH<br><b>Address:</b> Landsberger Allee 119, Berlin<br><b>Open Now:</b> True<br><b>Price Level:</b> 2<br><b>Total Ratings:</b> 3883<br><b>Rating:</b> 3.2</div>`)[0];
+                popup_5d156bed0fa3dd4568d9348b5b642733.setContent(html_ca771abdd2ab69f1bc0cd62dc45c6dcf);
+            
+        
+
+        marker_6815be40d1c1f20659fb47ef33a0c323.bindPopup(popup_5d156bed0fa3dd4568d9348b5b642733)
+        ;
+
+        
+    
+    
+            var marker_ed2926cd0b2916eee1d5d1ff129ace57 = L.marker(
+                [52.5201877, 13.3876609],
+                {}
+            ).addTo(map_002d748c4ba1f89a44bd14d8a0697480);
+        
+    
+            var icon_f53a0cfc4af88613b98f8068098f44d3 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "utensils", "iconColor": "white", "markerColor": "purple", "prefix": "glyphicon"}
+            );
+            marker_ed2926cd0b2916eee1d5d1ff129ace57.setIcon(icon_f53a0cfc4af88613b98f8068098f44d3);
+        
+    
+        var popup_478212446443d751ed5c0f0f1dd97a1f = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_b868f0237fa4e6382bb2c9bd6410aa75 = $(`<div id="html_b868f0237fa4e6382bb2c9bd6410aa75" style="width: 100.0%; height: 100.0%;"><b>Name:</b> BURGER KING Friedrichstraße<br><b>Address:</b> Georgenstraße 14-18, Berlin<br><b>Open Now:</b> False<br><b>Price Level:</b> 2<br><b>Total Ratings:</b> 631<br><b>Rating:</b> 2.7</div>`)[0];
+                popup_478212446443d751ed5c0f0f1dd97a1f.setContent(html_b868f0237fa4e6382bb2c9bd6410aa75);
+            
+        
+
+        marker_ed2926cd0b2916eee1d5d1ff129ace57.bindPopup(popup_478212446443d751ed5c0f0f1dd97a1f)
+        ;
+
+        
+    
+    
+            var marker_6e56e9a4d47940e0d926ab5d6d2436b1 = L.marker(
+                [52.4669063, 13.4319254],
+                {}
+            ).addTo(map_002d748c4ba1f89a44bd14d8a0697480);
+        
+    
+            var icon_e9eea5e95b612a646c8c42f7f5ef6842 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "utensils", "iconColor": "white", "markerColor": "purple", "prefix": "glyphicon"}
+            );
+            marker_6e56e9a4d47940e0d926ab5d6d2436b1.setIcon(icon_e9eea5e95b612a646c8c42f7f5ef6842);
+        
+    
+        var popup_16b1cb123ce9c39a309af82822719552 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_2cc6f0e88ecf0b4e31be329c89b39f85 = $(`<div id="html_2cc6f0e88ecf0b4e31be329c89b39f85" style="width: 100.0%; height: 100.0%;"><b>Name:</b> Burger King<br><b>Address:</b> Hermannstraße 158, Berlin<br><b>Open Now:</b> Unknown<br><b>Price Level:</b> 2<br><b>Total Ratings:</b> 3<br><b>Rating:</b> 3.7</div>`)[0];
+                popup_16b1cb123ce9c39a309af82822719552.setContent(html_2cc6f0e88ecf0b4e31be329c89b39f85);
+            
+        
+
+        marker_6e56e9a4d47940e0d926ab5d6d2436b1.bindPopup(popup_16b1cb123ce9c39a309af82822719552)
+        ;
+
+        
+    
+    
+            var marker_060b1f5003c4f454b47a56aaedc00fd7 = L.marker(
+                [52.52187960000001, 13.4108231],
+                {}
+            ).addTo(map_002d748c4ba1f89a44bd14d8a0697480);
+        
+    
+            var icon_64b260576618be35d76bbbd1b1321b30 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "utensils", "iconColor": "white", "markerColor": "purple", "prefix": "glyphicon"}
+            );
+            marker_060b1f5003c4f454b47a56aaedc00fd7.setIcon(icon_64b260576618be35d76bbbd1b1321b30);
+        
+    
+        var popup_ff165f5753adb5b2ca90653a8b11c85e = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_1b656791d384546d08facba688ce2f49 = $(`<div id="html_1b656791d384546d08facba688ce2f49" style="width: 100.0%; height: 100.0%;"><b>Name:</b> Burger King<br><b>Address:</b> Im Bahnhof, Alexanderpl., Berlin<br><b>Open Now:</b> False<br><b>Price Level:</b> 2<br><b>Total Ratings:</b> 3<br><b>Rating:</b> 1</div>`)[0];
+                popup_ff165f5753adb5b2ca90653a8b11c85e.setContent(html_1b656791d384546d08facba688ce2f49);
+            
+        
+
+        marker_060b1f5003c4f454b47a56aaedc00fd7.bindPopup(popup_ff165f5753adb5b2ca90653a8b11c85e)
+        ;
+
+        
+    
+    
+            var marker_a543fa5da3dfeba06e1e497d52e8d8c2 = L.marker(
+                [52.5346151, 13.496191],
+                {}
+            ).addTo(map_002d748c4ba1f89a44bd14d8a0697480);
+        
+    
+            var icon_8ccd13c5af4b75ea16eb149478900808 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "utensils", "iconColor": "white", "markerColor": "purple", "prefix": "glyphicon"}
+            );
+            marker_a543fa5da3dfeba06e1e497d52e8d8c2.setIcon(icon_8ccd13c5af4b75ea16eb149478900808);
+        
+    
+        var popup_faf27cde9be3bbb1d6f7c86880af91a2 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_c444a400f2e8a955e112dcf53d12a55d = $(`<div id="html_c444a400f2e8a955e112dcf53d12a55d" style="width: 100.0%; height: 100.0%;"><b>Name:</b> BURGER KING Deutschland GmbH<br><b>Address:</b> Landsberger Allee 277, Berlin<br><b>Open Now:</b> False<br><b>Price Level:</b> 2<br><b>Total Ratings:</b> 1060<br><b>Rating:</b> 2.9</div>`)[0];
+                popup_faf27cde9be3bbb1d6f7c86880af91a2.setContent(html_c444a400f2e8a955e112dcf53d12a55d);
+            
+        
+
+        marker_a543fa5da3dfeba06e1e497d52e8d8c2.bindPopup(popup_faf27cde9be3bbb1d6f7c86880af91a2)
+        ;
+
+        
+    
+    
+            var marker_cd5432910c853904b08aef8a78737c71 = L.marker(
+                [52.5249111, 13.369492],
+                {}
+            ).addTo(map_002d748c4ba1f89a44bd14d8a0697480);
+        
+    
+            var icon_870bd41f4ffc90b5b5de87b82ad9d1a3 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "utensils", "iconColor": "white", "markerColor": "purple", "prefix": "glyphicon"}
+            );
+            marker_cd5432910c853904b08aef8a78737c71.setIcon(icon_870bd41f4ffc90b5b5de87b82ad9d1a3);
+        
+    
+        var popup_9c8a06e20bfe8804ae69efaea67ea443 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_87c65062797623714350b07aaae331a8 = $(`<div id="html_87c65062797623714350b07aaae331a8" style="width: 100.0%; height: 100.0%;"><b>Name:</b> Burger King<br><b>Address:</b> Berlin Hauptbahnhof, Europaplatz 1, Berlin<br><b>Open Now:</b> False<br><b>Price Level:</b> 2<br><b>Total Ratings:</b> 477<br><b>Rating:</b> 2</div>`)[0];
+                popup_9c8a06e20bfe8804ae69efaea67ea443.setContent(html_87c65062797623714350b07aaae331a8);
+            
+        
+
+        marker_cd5432910c853904b08aef8a78737c71.bindPopup(popup_9c8a06e20bfe8804ae69efaea67ea443)
+        ;
+
+        
+    
+    
+            var marker_58953bdcd73578c345608be1adb2316a = L.marker(
+                [52.4525528, 13.5148648],
+                {}
+            ).addTo(map_002d748c4ba1f89a44bd14d8a0697480);
+        
+    
+            var icon_bf3427ead4b04919967cb4ae72826c19 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "utensils", "iconColor": "white", "markerColor": "purple", "prefix": "glyphicon"}
+            );
+            marker_58953bdcd73578c345608be1adb2316a.setIcon(icon_bf3427ead4b04919967cb4ae72826c19);
+        
+    
+        var popup_1d97701bae41f669f60a6e62e631d0f7 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_0634dfd41a9487d767d22e106c25dc80 = $(`<div id="html_0634dfd41a9487d767d22e106c25dc80" style="width: 100.0%; height: 100.0%;"><b>Name:</b> Burger King Berlin<br><b>Address:</b> Michael-Brückner-Straße 24, Berlin<br><b>Open Now:</b> True<br><b>Price Level:</b> 2<br><b>Total Ratings:</b> 2493<br><b>Rating:</b> 3</div>`)[0];
+                popup_1d97701bae41f669f60a6e62e631d0f7.setContent(html_0634dfd41a9487d767d22e106c25dc80);
+            
+        
+
+        marker_58953bdcd73578c345608be1adb2316a.bindPopup(popup_1d97701bae41f669f60a6e62e631d0f7)
+        ;
+
+        
+    
+</script>
+</html>
